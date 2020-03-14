@@ -8,5 +8,7 @@ This is an adaptation of age-structured model and Approximate Bayesian Computati
 
 Outbreak data from: https://github.com/jriou/covid_adjusted_cfr
 
+Comparing observed outbreak data with model simulations: number of daily cases (left) and percentage of cases in different age groups (right).
+![](ABC_COVID19_results.png)
 
 
