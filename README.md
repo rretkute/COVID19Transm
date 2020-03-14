@@ -11,7 +11,7 @@ Parameter are estimated using the ABC-SMC algorithm with tolerance calculated as
 
 Outbreak data is the COVID-19 epidemic in Hubei province in China as curated @: https://github.com/jriou/covid_adjusted_cfr
 
-Contact pattern Prem, Cook and Jit 2017, PLoS     Comput     Biol 123, "Projecting social contact matrices in 152 countries using contact surveys and demographic data",  https://doi.org/10.1371/journal.pcbi.1005697
+Contact pattern from: Prem, Cook and Jit 2017, PLoS     Comput     Biol 123, "Projecting social contact matrices in 152 countries using contact surveys and demographic data",  https://doi.org/10.1371/journal.pcbi.1005697
 
 Figure 1. Comparing observed outbreak data with model simulations: number of daily cases (left) and percentage of cases in different age groups (right).
 ![](ABC_COVID19_results.png)
