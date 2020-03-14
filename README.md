@@ -6,7 +6,7 @@ CB2 3EA, UK
 
 This is an adaptation of age-structured model from Minter and Retkute 2019, Epidemics 29, 100368, "Approximate Bayesian Computation for infectious disease modelling" https://doi.org/10.1016/j.epidem.2019.100368
 
-Parameter are estimated using the ABC-SMC algorithm with the tolerance calculated as the median from the previous generation.
+Parameter are estimated using the ABC-SMC algorithm with tolerance calculated as the median from the previous generation.
 
 Outbreak data is the COVID-19 epidemic in Hubei province in China as curated @: https://github.com/jriou/covid_adjusted_cfr
 
