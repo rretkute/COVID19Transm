@@ -1,6 +1,8 @@
 library(tmvtnorm)
 source('COVID19_preamble.R')
 
+res.file<-"results.txt"
+
 # outbreak data
 agedistr_cases <- 
 c(416, 549, 3619, 7600, 8571, 10008, 8583, 3918, 1408)
@@ -34,7 +36,7 @@ n_age<-nrow(age)
 cl.to.test<-list(1:2, 3:4, 5:6, 7:8, 9:10, 11:12, 13:14, 15:16, 16:18)
 
 #  Adjust observed in each class so that the sum is equal to sum of daily obsrved
-age_inc<- sum(incidence_cases)*agedistr_cases/sum(agedistr_cases)
+age_inc_perc<- sum(incidence_cases)*agedistr_cases/sum(agedistr_cases)
 
 gamma <- 5.6  # incubation period
 mu <- 2.9   # infectousness period
@@ -47,7 +49,7 @@ epsilon_T <- Inf
 epsilon_A <- Inf
 
 # Max number of iterations
-G <- 100
+G <- 10
 
 # Number of simulations for each parameter set
 n <- 1
@@ -60,15 +62,13 @@ lm.upp<-c(60*10^6,  20, 20, 1, 1,  1, 1, 1, 1, 1, 365)
 # plot(Seas(1:365, 0.5, 1, 100), type='l')
 
 run<-1
-
 no  <- sample(1:1000,1)
-
 sim<-0 
 while(run <10^6){ 
-	res<-read.table(res.file, header=F)
-	if(nrow(res)==0){
+  if(!file.exists(res.file)){
 	  g<-1
 	} else {
+	  res<-read.table(res.file, header=F)
 	  colnames(res)<-c("no", "g", "sim", "N0", "age_sh", "age_rt", "beta", 
 	                   "f_E", "delta", "age_bg", "rho", "epsilon0", "epsilon1", "phi","w", "D1", "D2")
 	  g<- max(res$g)
@@ -147,7 +147,6 @@ while(run <10^6){
 				}
       			w.new <- (m/n)*w1/w2
        			cat(c(no, g, sim, res.new, w.new, dist, "\n"), file=res.file, append = TRUE, sep="\t")
-      			cat(1, file=wrfl, append = F)
       			sim<-0 
       		} 
 		}
@@ -155,4 +154,3 @@ while(run <10^6){
 	run<-10^8}
 	run<-run+1
 } 
-
